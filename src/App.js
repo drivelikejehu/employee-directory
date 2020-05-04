@@ -1,9 +1,10 @@
 import React from 'react';
+import Directory from "./containers/EmployeeDirectory"
 
 function App() {
   return (
-    <div className="App">
-      <h1>Hello World</h1>
+    <div>
+      <Directory />
     </div>
   );
 }
