@@ -1,9 +1,11 @@
 import React from 'react';
+import Item from './Item';
 
 const List = () => {
     return (
         <div>
-            Hello from my List component.
+            <h1>Here's my list</h1>
+            <Item />
         </div>
     );
 };
