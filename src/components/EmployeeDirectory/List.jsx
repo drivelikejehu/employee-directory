@@ -12,8 +12,9 @@ const List = (props) => {
         <div className="col">
           <ol>
             {props.employees.map((employee) => (
-              <Item firstName={employee.firstName}
-              lastName={employee.lastName}/>
+              <Item key={employee.id} {...employee}/>
+            //   <Item key={employee.id} firstName={employee.firstName}
+            //   lastName={employee.lastName}/>
             ))}
           </ol>
         </div>
