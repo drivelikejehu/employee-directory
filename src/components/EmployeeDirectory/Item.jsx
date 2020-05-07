@@ -1,9 +1,11 @@
 import React from 'react';
 
-const Item = () => {
+const Item = (props) => {
     return (
         <div>
-            Here's a single item
+            <ul>
+                <li>{props.firstName} {props.lastName}</li>
+            </ul>
         </div>
     );
 };
