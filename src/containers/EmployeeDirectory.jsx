@@ -29,6 +29,11 @@ class EmployeeDirectory extends Component {
     return (
       <div>
         <h1>Check the directory</h1>
+        <div className="container">
+          <div className="row">
+            Search Bar
+          </div>
+          </div>
         <List employees={this.state.employees} />
       </div>
     );
