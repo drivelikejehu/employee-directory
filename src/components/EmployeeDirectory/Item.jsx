@@ -17,7 +17,7 @@ const Item = (props) => {
             props.id +
             ".png"
           }
-          alt="employee photo"
+          alt="employee profile"
           style={styles.employeePic}
         ></img>
       </div>
