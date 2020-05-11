@@ -6,12 +6,19 @@ class EmployeeDirectory extends Component {
   state = {
     employees: [],
     employeesToDisplay: [],
-    searchTerm: ""
+    searchTerm: "",
   };
 
   componentDidMount() {
     this.getEmployees();
   }
+
+  clearFilter = () => {
+    this.setState({
+      employeesToDisplay: this.state.employees,
+      searchTerm: "",
+    });
+  };
 
   getEmployees = () => {
     axios
@@ -19,8 +26,8 @@ class EmployeeDirectory extends Component {
       .then((res) => {
         console.log(res.data);
         this.setState({
-          employees:res.data,
-          employeesToDisplay: res.data
+          employees: res.data,
+          employeesToDisplay: res.data,
         });
       })
       .catch((err) => {
@@ -28,26 +35,26 @@ class EmployeeDirectory extends Component {
       });
   };
 
-  handleChange = event => {
-    const {name, value} = event.target
+  handleChange = (event) => {
+    const { name, value } = event.target;
     this.setState({
-      [name]: value
-    })
-  }
+      [name]: value,
+    });
+  };
 
-  handleSubmit = e => {
+  handleSubmit = (e) => {
     e.preventDefault();
-    console.log("HandleSubmit")
-    console.log(this.state.searchTerm)
-    const employees = [...this.state.employees]
-    const filteredEmployees = employees.filter(employee => {
-      const regex = new RegExp(this.state.searchTerm, 'gi')
-      return employee.firstName.match(regex)
-    })
+    console.log("HandleSubmit");
+    console.log(this.state.searchTerm);
+    const employees = [...this.state.employees];
+    const filteredEmployees = employees.filter((employee) => {
+      const regex = new RegExp(this.state.searchTerm, "gi");
+      return employee.firstName.match(regex);
+    });
     this.setState({
       employeesToDisplay: filteredEmployees,
-    })
-  }
+    });
+  };
 
   render() {
     return (
@@ -57,20 +64,30 @@ class EmployeeDirectory extends Component {
           <div className="row">
             <div className="col">
               <form onSubmit={this.handleSubmit}>
-                <div className="form-group">
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder="Search the employee directory"
-                    name="searchTerm"
-                    value={this.state.searchTerm}
-                    onChange={this.handleChange}
-                  />
+                <div className="row">
+                  <div className="col-sm-4">
+                    <div className="form-group">
+                      <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Search the employee directory"
+                        name="searchTerm"
+                        value={this.state.searchTerm}
+                        onChange={this.handleChange}
+                      />
+                    </div>
+                  </div>
+                  <div className="col-sm-2">
+                    <button type="submit" className="btn btn-primary">
+                      Submit
+                    </button>
+                  </div>
                 </div>
-                <button type="submit" className="btn btn-primary">
-                  Submit
-                </button>
               </form>
+              {this.state.employees.length !==
+                this.state.employeesToDisplay.length && (
+                <button className="btn btn-warning" onClick={this.clearFilter}>Clear Search</button>
+              )}
             </div>
           </div>
         </div>
