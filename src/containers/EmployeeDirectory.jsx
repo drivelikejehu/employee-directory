@@ -13,7 +13,7 @@ class EmployeeDirectory extends Component {
 
   getEmployees = () => {
     axios
-    .get("https://my.api.mockaroo.com/19-employees.json?key=25bbe930")
+    .get("https://my.api.mockaroo.com/employee_directory.json?key=25bbe930")
     .then((res) => {
         console.log(res.data)
       this.setState({

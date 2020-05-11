@@ -8,16 +8,10 @@ const List = (props) => {
       <div className="row">
         <h1>You have {props.employees.length} employees</h1>
       </div>
-      <div className="row">
-        <div className="col">
-          <ol>
+      <div>
             {props.employees.map((employee) => (
               <Item key={employee.id} {...employee}/>
-            //   <Item key={employee.id} firstName={employee.firstName}
-            //   lastName={employee.lastName}/>
             ))}
-          </ol>
-        </div>
       </div>
     </div>
   );
