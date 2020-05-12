@@ -9,9 +9,10 @@ const Item = (props) => {
     },
   };
   return (
-    <div className="row">
-      <div className="col">
-        <img
+    <>
+    <tr>
+      <th scope="row">{props.id}</th>
+      <td><img
           src={
             "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" +
             props.id +
@@ -20,14 +21,12 @@ const Item = (props) => {
           alt="employee profile"
           style={styles.employeePic}
         ></img>
-      </div>
-      <div className="col">{props.id}</div>
-      <div className="col">
-        {props.firstName} {props.lastName}
-      </div>
-      <div className="col">{props.email}</div>
-      <div className="col">{props.timeZone}</div>
-    </div>
+        </td>
+        <td>{props.firstName} {props.lastName}</td>
+        <td>{props.email}</td>
+        <td>{props.phone}</td>
+        </tr>
+        </>
   );
 };
 
