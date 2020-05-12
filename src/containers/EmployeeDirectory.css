@@ -1,0 +1,12 @@
+.jumbotron {
+    background-color: rgb(25, 146, 146);
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    text-align: center;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {background-color: #f2f2f2;}
