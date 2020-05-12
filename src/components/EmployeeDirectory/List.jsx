@@ -4,16 +4,25 @@ import Item from "./Item";
 const List = (props) => {
   console.log(props);
   return (
-    <div className="container">
-      <div className="row">
-        <h1>You have {props.employees.length} employees</h1>
-      </div>
-      <div>
-        {props.employees.map(employee => (
+<>
+      <h2>There are {props.employees.length} employees</h2>
+      <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">No.</th>
+      <th scope="col">Photo</th>
+      <th scope="col">Full Name</th>
+      <th scope="col">E-mail</th>
+      <th scope="col">Phone Number</th>
+    </tr>
+  </thead>
+  <tbody>
+    {props.employees.map(employee => (
           <Item key={employee.id} {...employee} />
         ))}
-      </div>
-    </div>
+  </tbody>
+</table>
+</>
   );
 };
 

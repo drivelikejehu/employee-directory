@@ -22,7 +22,7 @@ class EmployeeDirectory extends Component {
 
   getEmployees = () => {
     axios
-      .get("https://my.api.mockaroo.com/employee_directory.json?key=25bbe930")
+      .get("https://my.api.mockaroo.com/employeedir2.json?key=25bbe930")
       .then((res) => {
         console.log(res.data);
         this.setState({
@@ -49,7 +49,12 @@ class EmployeeDirectory extends Component {
     const employees = [...this.state.employees];
     const filteredEmployees = employees.filter((employee) => {
       const regex = new RegExp(this.state.searchTerm, "gi");
-      return employee.firstName.match(regex);
+      return (
+        employee.firstName.match(regex) ||
+        employee.lastName.match(regex) ||
+        employee.email.match(regex) ||
+        employee.phone.match(regex)
+      );
     });
     this.setState({
       employeesToDisplay: filteredEmployees,
@@ -59,8 +64,16 @@ class EmployeeDirectory extends Component {
   render() {
     return (
       <div>
-        <h1>Check the directory</h1>
-        <div className="container">
+
+        <div className="jumbotron jumbotron-fluid">
+          <div className="container">
+            <h1 className="display-4">Employee Directory</h1>
+            <p className="lead">
+            </p>
+          </div>
+        </div>
+
+        <div classNameName="container">
           <div className="row">
             <div className="col">
               <form onSubmit={this.handleSubmit}>
@@ -70,7 +83,7 @@ class EmployeeDirectory extends Component {
                       <input
                         type="text"
                         className="form-control"
-                        placeholder="Search the employee directory"
+                        placeholder="Search the entire employee directory"
                         name="searchTerm"
                         value={this.state.searchTerm}
                         onChange={this.handleChange}
@@ -86,7 +99,9 @@ class EmployeeDirectory extends Component {
               </form>
               {this.state.employees.length !==
                 this.state.employeesToDisplay.length && (
-                <button className="btn btn-warning" onClick={this.clearFilter}>Clear Search</button>
+                <button className="btn btn-warning" onClick={this.clearFilter}>
+                  Clear Search
+                </button>
               )}
             </div>
           </div>
