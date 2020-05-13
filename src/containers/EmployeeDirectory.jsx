@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import List from "../components/EmployeeDirectory/List";
 import axios from "axios";
+import "./EmployeeDirectory.css";
 
 class EmployeeDirectory extends Component {
   state = {
@@ -64,16 +65,14 @@ class EmployeeDirectory extends Component {
   render() {
     return (
       <div>
-
         <div className="jumbotron jumbotron-fluid">
           <div className="container">
             <h1 className="display-4">Employee Directory</h1>
-            <p className="lead">
-            </p>
+            <p className="lead"></p>
           </div>
         </div>
 
-        <div classNameName="container">
+        <div classsName="container">
           <div className="row">
             <div className="col">
               <form onSubmit={this.handleSubmit}>
@@ -83,7 +82,7 @@ class EmployeeDirectory extends Component {
                       <input
                         type="text"
                         className="form-control"
-                        placeholder="Search the entire employee directory"
+                        placeholder="Please enter employee search criteria"
                         name="searchTerm"
                         value={this.state.searchTerm}
                         onChange={this.handleChange}
