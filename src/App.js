@@ -1,11 +1,11 @@
-import React from 'react'; 
-import Directory from "./containers/EmployeeDirectory"
+import React from "react";
+import Directory from "./containers/EmployeeDirectory";
 
 function App() {
   return (
-    <div className="container">
-        <Directory />
-    </div>
+    <>
+      <Directory />
+    </>
   );
 }
 

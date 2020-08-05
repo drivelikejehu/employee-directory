@@ -64,12 +64,12 @@ class EmployeeDirectory extends Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
         <div className="jumbotron jumbotron-fluid">
-          <div className="container">
+          {/* <div className="container"> */}
             <h1 className="display-4">Employee Directory</h1>
             <p className="lead"></p>
-          </div>
+          {/* </div> */}
         </div>
 
         <div classsName="container">
