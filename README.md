@@ -1,6 +1,6 @@
 # Employee Directory
 
-![Screenshot of employee directory](img/reactdir.png)
+![Screenshot of employee directory](img/employeedir.png)
 
 ## Description
 
